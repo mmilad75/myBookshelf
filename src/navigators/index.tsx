@@ -2,9 +2,10 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {SafeAreaView} from 'react-native';
 import AuthStack from './auth';
+import globalStyles from '../helpers/globalStyles';
 
 const Index: React.FC = () => (
-	<SafeAreaView>
+	<SafeAreaView style={globalStyles.container}>
 		<NavigationContainer>
 			<AuthStack />
 		</NavigationContainer>
