@@ -1,28 +1,20 @@
 import React, {useEffect} from 'react';
 import {View, Text} from '../../components';
 import globalStyles from '../../helpers/globalStyles';
-import auth from '@react-native-firebase/auth';
-import {CommonActions, useNavigation} from '@react-navigation/native';
-import screens from '../../navigators/screens';
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {AuthStackParamsList} from '../../navigators/auth';
+import {checkLogin} from '../../state/user/actions';
+import {useDispatch} from 'react-redux';
+
+export type splashScreenNavigationType = StackNavigationProp<AuthStackParamsList, 'auth.splash'>;
 
 const Splash:React.FC = () => {
-	const navigation = useNavigation();
+	const navigation = useNavigation<splashScreenNavigationType>();
+	const dispatch = useDispatch();
 
 	useEffect(() => {
-		auth().onAuthStateChanged(userState => {
-			if (userState) {
-				console.log('userState', userState);
-			} else {
-				navigation.dispatch(
-					CommonActions.reset({
-						index: 0,
-						routes: [
-							{name: screens.auth.signin},
-						],
-					}),
-				);
-			}
-		});
+		dispatch(checkLogin(navigation));
 	}, []);
 
 	return (
