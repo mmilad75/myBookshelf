@@ -20,12 +20,7 @@ export const checkLogin = (navigation: splashScreenNavigationType) => (dispatch:
 		auth().onAuthStateChanged(user => {
 			dispatch(setUser(user));
 			if (user) {
-				navigation.reset({
-					index: 0,
-					routes: [
-						{name: 'auth.signup'},
-					],
-				});
+				console.log('go to main screen');
 			} else {
 				navigation.reset({
 					index: 0,
@@ -44,13 +39,33 @@ export const loginUser = (email: string, password: string, navigation: signinScr
 	try {
 		const res = await auth().signInWithEmailAndPassword(email, password);
 		dispatch(setUser(res.user));
-		console.log('res', res);
 		navigation.reset({
 			index: 0,
 			routes: [
 				{name: 'auth.signup'},
 			],
 		});
+	} catch (e: any) {
+		dispatch(setError(e?.code));
+	}
+};
+
+export const registerUser = (email: string, password: string) => async (dispatch: Dispatch<Action>) => {
+	try {
+		const res = await auth().createUserWithEmailAndPassword(email, password);
+		dispatch(setUser(res.user));
+		if (res.user) {
+			console.log('go to main screen');
+		}
+	} catch (e: any) {
+		dispatch(setError(e?.code));
+	}
+};
+
+export const signOutUser = () => async (dispatch: Dispatch<Action>) => {
+	try {
+		await auth().signOut();
+		dispatch(setUser(null));
 	} catch (e: any) {
 		dispatch(setError(e?.code));
 	}

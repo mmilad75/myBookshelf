@@ -25,6 +25,7 @@ const SignIn:React.FC = () => {
 			<TextInput placeholder="email" value={email} onChangeText={setEmail} />
 			<TextInput placeholder="password" value={password} onChangeText={setPassword} />
 			<Text onPress={handleSignIn}>Sign In</Text>
+			<Text onPress={() => navigation.navigate('auth.signup')}>go to sign up</Text>
 		</View>
 	);
 };
