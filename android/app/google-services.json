@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "589570795694",
+    "project_id": "tadbir-negar",
+    "storage_bucket": "tadbir-negar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:589570795694:android:074005c3f12684aeb7e53f",
+        "android_client_info": {
+          "package_name": "com.mybookshelf"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "589570795694-4aepfl97rt5fiigcgd1oc876hm04gns9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7m7wJ7y4abXC0bfz8TL8vhGVh3FW_0yk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "589570795694-4aepfl97rt5fiigcgd1oc876hm04gns9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "589570795694-8gnmkh2g33b8g1eoh65f0o1foo6qjmo3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.tadbirnegar"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
