@@ -12,7 +12,8 @@ export type bestSellerScreenNavigationType = BottomTabNavigationProp<HomeTabPara
 
 const BestSellers: React.FC = () => {
 	const dispatch = useDispatch();
-	const books = useAppSelector(state => state.book.bestSeller);
+	const bestSellers = useAppSelector(state => state.book.bestSeller);
+	const state = useAppSelector(state => state);
 
 	useEffect(() => {
 		dispatch(getBestSeller());
@@ -21,7 +22,8 @@ const BestSellers: React.FC = () => {
 	return (
 		<View style={globalStyles.screenContainer}>
 			<FlatList
-				data={books}
+				extraData={state}
+				data={bestSellers}
 				renderItem={({item, index}: {item: Book, index: number}) => <BookItem key={index} item={item} />}
 			/>
 		</View>

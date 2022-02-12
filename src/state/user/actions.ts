@@ -5,6 +5,7 @@ import {Action} from './interface';
 import {ActionType} from './type';
 import {signinScreenNavigationType} from '../../screens/auth/SignIn';
 import {homeTabNavigationType} from '../../navigators/Home';
+import {CommonActions} from '@react-navigation/native';
 
 export const setUser = (payload: FirebaseAuthTypes.User | null): Action => ({
 	type: ActionType.SET_USER,
@@ -20,21 +21,20 @@ export const checkLogin = (navigation: splashScreenNavigationType & homeTabNavig
 	try {
 		auth().onAuthStateChanged(user => {
 			dispatch(setUser(user));
-
 			if (user) {
-				navigation.reset({
+				navigation.dispatch(CommonActions.reset({
 					index: 0,
 					routes: [
 						{name: 'home'},
 					],
-				});
+				}));
 			} else {
-				navigation.reset({
+				navigation.dispatch(CommonActions.reset({
 					index: 0,
 					routes: [
 						{name: 'auth.signin'},
 					],
-				});
+				}));
 			}
 		});
 	} catch (e: any) {

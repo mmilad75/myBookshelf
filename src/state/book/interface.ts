@@ -41,7 +41,7 @@ export interface Book {
 export interface Reducer {
   bestSeller: Book[] | [],
   shopList: Book[] | [],
-  error: any
+  error: any,
 }
 
 interface ActionSetBestSeller {

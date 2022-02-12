@@ -39,7 +39,7 @@ export const bookReducer = (state = initState, action: Action & ActionAddToShopl
 		}
 
 		case ActionType.REMOVE_FROM_SHOPLIST: {
-			const {shopList} = state;
+			const shopList = [...state.shopList];
 			const index = shopList.findIndex(item => item.title === action.payload.title);
 			if (index > -1) {
 				shopList.splice(index, 1);
@@ -48,7 +48,7 @@ export const bookReducer = (state = initState, action: Action & ActionAddToShopl
 			return {
 				...state,
 				error: null,
-				shopList,
+				shopList: shopList ? shopList : [],
 			};
 		}
 
