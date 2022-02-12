@@ -38,7 +38,7 @@ export const checkLogin = (navigation: splashScreenNavigationType & homeTabNavig
 			}
 		});
 	} catch (e: any) {
-		dispatch(setError(e?.code));
+		dispatch(setError(e?.message));
 	}
 };
 
@@ -53,7 +53,7 @@ export const loginUser = (email: string, password: string, navigation: signinScr
 			],
 		});
 	} catch (e: any) {
-		dispatch(setError(e?.code));
+		dispatch(setError(e?.message));
 	}
 };
 
@@ -70,7 +70,7 @@ export const registerUser = (email: string, password: string, navigation: homeTa
 			});
 		}
 	} catch (e: any) {
-		dispatch(setError(e?.code));
+		dispatch(setError(e?.message));
 	}
 };
 
@@ -89,6 +89,6 @@ export const signOutUser = (navigation: profileScreenNavigationType) => async (d
 			],
 		});
 	} catch (e: any) {
-		dispatch(setError(e?.code));
+		dispatch(setError(e?.message));
 	}
 };
