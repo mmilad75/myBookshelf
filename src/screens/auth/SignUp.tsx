@@ -4,6 +4,7 @@ import React, {useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {View, Text, TextInput} from '../../components';
 import {AuthStackParamsList} from '../../navigators/Auth';
+import {homeTabNavigationType} from '../../navigators/Home';
 import {registerUser} from '../../state/user/actions';
 
 export type signupScreenNavigationType = StackNavigationProp<AuthStackParamsList, 'auth.signup'>;
@@ -11,7 +12,7 @@ export type signupScreenNavigationType = StackNavigationProp<AuthStackParamsList
 const SignUp: React.FC = () => {
 	const [email, setEmail] = useState<string|undefined>(undefined);
 	const [password, setPassword] = useState<string|undefined>(undefined);
-	const navigation = useNavigation<signupScreenNavigationType>();
+	const navigation = useNavigation<signupScreenNavigationType&homeTabNavigationType>();
 	const dispatch = useDispatch();
 
 	const handleSignUp = () => {

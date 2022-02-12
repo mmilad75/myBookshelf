@@ -6,11 +6,12 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {AuthStackParamsList} from '../../navigators/Auth';
 import {checkLogin} from '../../state/user/actions';
 import {useDispatch} from 'react-redux';
+import {homeTabNavigationType} from '../../navigators/Home';
 
 export type splashScreenNavigationType = StackNavigationProp<AuthStackParamsList, 'auth.splash'>;
 
 const Splash:React.FC = () => {
-	const navigation = useNavigation<splashScreenNavigationType>();
+	const navigation = useNavigation<splashScreenNavigationType & homeTabNavigationType>();
 	const dispatch = useDispatch();
 
 	useEffect(() => {
