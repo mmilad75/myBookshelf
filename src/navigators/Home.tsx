@@ -17,9 +17,9 @@ const Tab = createBottomTabNavigator<HomeTabParamsList>();
 
 const HomeTab: React.FC = () => (
 	<Tab.Navigator>
-		<Tab.Screen name="home.bestSeller" component={BestSellers} />
-		<Tab.Screen name="home.shoppingList" component={ShoppingList} />
-		<Tab.Screen name="home.profile" component={Profile} />
+		<Tab.Screen options={{headerTitle: 'Best Seller'}} name="home.bestSeller" component={BestSellers} />
+		<Tab.Screen options={{headerTitle: 'Shopping List'}} name="home.shoppingList" component={ShoppingList} />
+		<Tab.Screen options={{headerTitle: 'Profile'}} name="home.profile" component={Profile} />
 	</Tab.Navigator>
 );
 

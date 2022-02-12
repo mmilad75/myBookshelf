@@ -14,9 +14,9 @@ const Stack = createStackNavigator<AuthStackParamsList>();
 
 const AuthStack: React.FC = () => (
 	<Stack.Navigator>
-		<Stack.Screen name="auth.splash" component={Splash} />
-		<Stack.Screen name="auth.signin" component={SignIn} />
-		<Stack.Screen name="auth.signup" component={SignUp} />
+		<Stack.Screen options={{headerShown: false}} name="auth.splash" component={Splash} />
+		<Stack.Screen options={{headerTitle: 'Sign In'}} name="auth.signin" component={SignIn} />
+		<Stack.Screen options={{headerTitle: 'Sign Up'}} name="auth.signup" component={SignUp} />
 	</Stack.Navigator>
 );
 
