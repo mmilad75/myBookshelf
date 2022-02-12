@@ -8,6 +8,7 @@ export default StyleSheet.create({
 		paddingVertical: scaleW(8),
 		backgroundColor: colors.green,
 		alignSelf: 'baseline',
+		marginTop: scaleW(10),
 	},
 	text: {
 		color: colors.white,

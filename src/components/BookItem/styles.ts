@@ -17,6 +17,6 @@ export default StyleSheet.create({
 		marginBottom: scaleW(2),
 	},
 	description: {
-		marginBottom: scaleW(10),
+		marginBottom: scaleW(2),
 	},
 });

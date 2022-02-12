@@ -11,7 +11,9 @@ const BookItem:React.FC<Props> = ({item}) => (
 	<View style={styles.container}>
 		<Text style={styles.title}>{item.title}</Text>
 		<Text style={styles.author}>{`Author: ${item.author}`}</Text>
-		<Text style={styles.description}>{`Description: ${item.description}`}</Text>
+		{item.description !== '' && (
+			<Text style={styles.description}>{`Description: ${item.description}`}</Text>
+		)}
 		<Button text="add to shoplist" />
 	</View>
 );
