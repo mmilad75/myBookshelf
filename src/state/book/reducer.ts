@@ -2,21 +2,22 @@ import {Action, Reducer} from './interface';
 import {ActionType} from './type';
 
 const initState: Reducer = {
-	user: null,
+	bestSeller: null,
 	error: null,
 };
 
-export const userReducer = (state = initState, action: Action): Reducer => {
+export const bookReducer = (state = initState, action: Action): Reducer => {
 	switch (action.type) {
-		case ActionType.SET_USER:
+		case ActionType.SET_BEST_SELLER:
 			return {
 				...state,
 				error: null,
-				user: action.payload,
+				bestSeller: action.payload,
 			};
 		case ActionType.SET_ERROR:
 			return {
-				user: null,
+				...state,
+				bestSeller: null,
 				error: action.payload,
 			};
 		default:
@@ -24,4 +25,4 @@ export const userReducer = (state = initState, action: Action): Reducer => {
 	}
 };
 
-export default userReducer;
+export default bookReducer;

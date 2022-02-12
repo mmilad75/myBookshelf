@@ -1,4 +1,4 @@
 export enum ActionType {
-  SET_USER = 'SET_USER',
+  SET_BEST_SELLER = 'SET_BEST_SELLER',
   SET_ERROR = 'SET_ERROR'
 }

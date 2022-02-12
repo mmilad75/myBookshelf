@@ -12,7 +12,7 @@ export const setUser = (payload: FirebaseAuthTypes.User | null): Action => ({
 });
 
 export const setError = (payload: any) => ({
-	type: ActionType.ERROR,
+	type: ActionType.SET_ERROR,
 	payload,
 });
 
