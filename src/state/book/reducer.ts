@@ -1,12 +1,13 @@
-import {Action, Reducer} from './interface';
+import {Action, ActionAddToShoplist, ActionRemoveFromShoplist, Reducer} from './interface';
 import {ActionType} from './type';
 
 const initState: Reducer = {
-	bestSeller: null,
+	bestSeller: [],
+	shopList: [],
 	error: null,
 };
 
-export const bookReducer = (state = initState, action: Action): Reducer => {
+export const bookReducer = (state = initState, action: Action & ActionAddToShoplist & ActionRemoveFromShoplist): Reducer => {
 	switch (action.type) {
 		case ActionType.SET_BEST_SELLER:
 			return {
@@ -17,9 +18,40 @@ export const bookReducer = (state = initState, action: Action): Reducer => {
 		case ActionType.SET_ERROR:
 			return {
 				...state,
-				bestSeller: null,
+				bestSeller: [],
 				error: action.payload,
 			};
+		case ActionType.ADD_TO_SHOPLIST: {
+			const {shopList} = state;
+			const index = shopList.findIndex(item => item.title === action.payload.title);
+			if (index === -1) {
+				return {
+					...state,
+					error: null,
+					shopList: [...state.shopList, action.payload],
+				};
+			}
+
+			return {
+				...state,
+				error: null,
+			};
+		}
+
+		case ActionType.REMOVE_FROM_SHOPLIST: {
+			const {shopList} = state;
+			const index = shopList.findIndex(item => item.title === action.payload.title);
+			if (index > -1) {
+				shopList.splice(index, 1);
+			}
+
+			return {
+				...state,
+				error: null,
+				shopList,
+			};
+		}
+
 		default:
 			return state;
 	}

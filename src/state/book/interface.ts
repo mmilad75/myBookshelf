@@ -39,13 +39,24 @@ export interface Book {
 }
 
 export interface Reducer {
-  bestSeller: Book[] | null,
+  bestSeller: Book[] | [],
+  shopList: Book[] | [],
   error: any
 }
 
 interface ActionSetBestSeller {
   type: string,
-  payload: Book[] | null
+  payload: Book[] | []
+}
+
+export interface ActionAddToShoplist {
+  type: string,
+  payload: Book
+}
+
+export interface ActionRemoveFromShoplist {
+  type: string,
+  payload: Book
 }
 
 export interface Error {
