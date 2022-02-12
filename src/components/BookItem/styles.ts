@@ -19,4 +19,7 @@ export default StyleSheet.create({
 	description: {
 		marginBottom: scaleW(2),
 	},
+	buttonContainer: {
+		flexDirection: 'row',
+	},
 });

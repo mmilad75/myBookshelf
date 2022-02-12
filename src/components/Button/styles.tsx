@@ -7,7 +7,7 @@ export default StyleSheet.create({
 		paddingHorizontal: scaleW(16),
 		paddingVertical: scaleW(8),
 		backgroundColor: colors.green,
-		alignSelf: 'baseline',
+		flexShrink: 1,
 		marginTop: scaleW(10),
 	},
 	text: {

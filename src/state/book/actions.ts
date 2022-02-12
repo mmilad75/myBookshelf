@@ -47,3 +47,8 @@ export const setRemoveFromShoplist = (payload: Book) => (dispatch: Dispatch<Acti
 		dispatch(setError(e));
 	}
 };
+
+export const setShoppingList = (payload: Book[] | []) => ({
+	type: ActionType.SET_SHOPPING_LIST,
+	payload,
+});

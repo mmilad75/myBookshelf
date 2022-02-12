@@ -1,11 +1,11 @@
 import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import {splashScreenNavigationType} from '../../screens/auth/Splash';
 import {Dispatch} from 'redux';
-import {Action} from './interface';
+import {Action, ActionLogOut} from './interface';
 import {ActionType} from './type';
 import {signinScreenNavigationType} from '../../screens/auth/SignIn';
 import {homeTabNavigationType} from '../../navigators/Home';
-import {CommonActions} from '@react-navigation/native';
+import {profileScreenNavigationType} from '../../screens/tabs/Profile';
 
 export const setUser = (payload: FirebaseAuthTypes.User | null): Action => ({
 	type: ActionType.SET_USER,
@@ -22,19 +22,19 @@ export const checkLogin = (navigation: splashScreenNavigationType & homeTabNavig
 		auth().onAuthStateChanged(user => {
 			dispatch(setUser(user));
 			if (user) {
-				navigation.dispatch(CommonActions.reset({
+				navigation.reset({
 					index: 0,
 					routes: [
 						{name: 'home'},
 					],
-				}));
+				});
 			} else {
-				navigation.dispatch(CommonActions.reset({
+				navigation.reset({
 					index: 0,
 					routes: [
 						{name: 'auth.signin'},
 					],
-				}));
+				});
 			}
 		});
 	} catch (e: any) {
@@ -74,10 +74,20 @@ export const registerUser = (email: string, password: string, navigation: homeTa
 	}
 };
 
-export const signOutUser = () => async (dispatch: Dispatch<Action>) => {
+export const logOut = (): ActionLogOut => ({
+	type: ActionType.LOG_OUT,
+});
+
+export const signOutUser = (navigation: profileScreenNavigationType) => async (dispatch: Dispatch<ActionLogOut>) => {
 	try {
 		await auth().signOut();
-		dispatch(setUser(null));
+		dispatch(logOut());
+		navigation.reset({
+			index: 0,
+			routes: [
+				{name: 'auth'},
+			],
+		});
 	} catch (e: any) {
 		dispatch(setError(e?.code));
 	}

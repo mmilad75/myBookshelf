@@ -10,4 +10,8 @@ interface ActionSetUser {
   payload: FirebaseAuthTypes.User | null
 }
 
+export interface ActionLogOut {
+  type: string
+}
+
 export type Action = ActionSetUser

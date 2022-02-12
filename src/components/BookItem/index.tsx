@@ -41,11 +41,13 @@ const BookItem:React.FC<Props> = ({item, buttonFunctionality = 'add'}) => {
 			{item.description !== '' && (
 				<Text style={styles.description}>{`Description: ${item.description}`}</Text>
 			)}
-			{buttonFunctionality === 'add' ? (
-				<Button onPress={() => handleAddToShoplist()} text={isBookInShoplist ? 'already added' : 'add to shoplist'} />
-			) : (
-				<Button onPress={() => handleRemoveFromShoplist()} text={'remove from shoplist'} />
-			)}
+			<View style={styles.buttonContainer}>
+				{buttonFunctionality === 'add' ? (
+					<Button onPress={() => handleAddToShoplist()} text={isBookInShoplist ? 'already added' : 'add to shoplist'} />
+				) : (
+					<Button onPress={() => handleRemoveFromShoplist()} text={'remove from shoplist'} />
+				)}
+			</View>
 		</View>
 	);
 };
