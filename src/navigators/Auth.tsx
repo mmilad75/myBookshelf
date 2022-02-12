@@ -1,8 +1,8 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import SignIn from '../../screens/auth/SignIn';
-import Splash from '../../screens/auth/Splash';
-import SignUp from '../../screens/auth/SignUp';
+import SignIn from '../screens/auth/SignIn';
+import Splash from '../screens/auth/Splash';
+import SignUp from '../screens/auth/SignUp';
 
 export type AuthStackParamsList = {
 	'auth.splash': undefined;

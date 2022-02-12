@@ -4,7 +4,7 @@ import {loginUser} from '../../state/user/actions';
 import {useDispatch} from 'react-redux';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {AuthStackParamsList} from '../../navigators/auth';
+import {AuthStackParamsList} from '../../navigators/Auth';
 
 export type signinScreenNavigationType = StackNavigationProp<AuthStackParamsList, 'auth.signin'>;
 

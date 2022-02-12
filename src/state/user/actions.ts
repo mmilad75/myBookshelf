@@ -4,6 +4,7 @@ import {Dispatch} from 'redux';
 import {Action} from './interface';
 import {ActionType} from './type';
 import {signinScreenNavigationType} from '../../screens/auth/SignIn';
+import {bestSellerScreenNavigationType} from '../../screens/tabs/BestSellers';
 
 export const setUser = (payload: FirebaseAuthTypes.User | null): Action => ({
 	type: ActionType.SET_USER,
@@ -15,12 +16,18 @@ export const setError = (payload: any) => ({
 	payload,
 });
 
-export const checkLogin = (navigation: splashScreenNavigationType) => (dispatch: Dispatch<Action>) => {
+export const checkLogin = (navigation: splashScreenNavigationType & bestSellerScreenNavigationType) => (dispatch: Dispatch<Action>) => {
 	try {
 		auth().onAuthStateChanged(user => {
 			dispatch(setUser(user));
+
 			if (user) {
-				console.log('go to main screen');
+				navigation.reset({
+					index: 0,
+					routes: [
+						{name: 'home.bestSeller'},
+					],
+				});
 			} else {
 				navigation.reset({
 					index: 0,
@@ -50,12 +57,17 @@ export const loginUser = (email: string, password: string, navigation: signinScr
 	}
 };
 
-export const registerUser = (email: string, password: string) => async (dispatch: Dispatch<Action>) => {
+export const registerUser = (email: string, password: string, navigation: bestSellerScreenNavigationType) => async (dispatch: Dispatch<Action>) => {
 	try {
 		const res = await auth().createUserWithEmailAndPassword(email, password);
 		dispatch(setUser(res.user));
 		if (res.user) {
-			console.log('go to main screen');
+			navigation.reset({
+				index: 0,
+				routes: [
+					{name: 'home.bestSeller'},
+				],
+			});
 		}
 	} catch (e: any) {
 		dispatch(setError(e?.code));
