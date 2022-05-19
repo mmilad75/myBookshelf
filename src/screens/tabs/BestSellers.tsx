@@ -11,23 +11,23 @@ import {Book} from '../../state/book/interface';
 export type bestSellerScreenNavigationType = BottomTabNavigationProp<HomeTabParamsList, 'home.bestSeller'>;
 
 const BestSellers: React.FC = () => {
-	const dispatch = useDispatch();
-	const bestSellers = useAppSelector(state => state.book.bestSeller);
-	const state = useAppSelector(state => state);
+  const dispatch = useDispatch();
+  const bestSellers = useAppSelector(state => state.book.bestSeller);
+  const state = useAppSelector(state => state);
 
-	useEffect(() => {
-		dispatch(getBestSeller());
-	}, []);
+  useEffect(() => {
+    dispatch(getBestSeller());
+  }, []);
 
-	return (
-		<View style={globalStyles.screenContainer}>
-			<FlatList
-				extraData={state}
-				data={bestSellers}
-				renderItem={({item, index}: {item: Book, index: number}) => <BookItem key={index} item={item} />}
-			/>
-		</View>
-	);
+  return (
+    <View style={globalStyles.screenContainer}>
+      <FlatList
+        extraData={state}
+        data={bestSellers}
+        renderItem={({item, index}: {item: Book, index: number}) => <BookItem key={index} item={item} />}
+      />
+    </View>
+  );
 };
 
 export default BestSellers;

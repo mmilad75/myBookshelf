@@ -16,18 +16,18 @@ export type mainStackNavigationType = StackNavigationProp<MainStackParamsList>;
 const MainStack = createStackNavigator<MainStackParamsList>();
 
 const Main = () => (
-	<MainStack.Navigator screenOptions={{headerShown: false}}>
-		<MainStack.Screen name="auth" component={AuthStack} />
-		<MainStack.Screen name="home" component={HomeTab} />
-	</MainStack.Navigator>
+  <MainStack.Navigator screenOptions={{headerShown: false}}>
+    <MainStack.Screen name="auth" component={AuthStack} />
+    <MainStack.Screen name="home" component={HomeTab} />
+  </MainStack.Navigator>
 );
 
 const Index: React.FC = () => (
-	<SafeAreaView style={globalStyles.container}>
-		<NavigationContainer>
-			<Main />
-		</NavigationContainer>
-	</SafeAreaView>
+  <SafeAreaView style={globalStyles.container}>
+    <NavigationContainer>
+      <Main />
+    </NavigationContainer>
+  </SafeAreaView>
 );
 
 export default Index;

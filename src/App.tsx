@@ -5,11 +5,11 @@ import Index from './navigators';
 import {store, persistor} from './state';
 
 const App: React.FC = () => (
-	<Provider store={store}>
-		<PersistGate loading={null} persistor={persistor}>
-			<Index />
-		</PersistGate>
-	</Provider>
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <Index />
+    </PersistGate>
+  </Provider>
 
 );
 
