@@ -11,37 +11,37 @@ import {useAppSelector} from '../../helpers/hooks';
 export type signinScreenNavigationType = StackNavigationProp<AuthStackParamsList, 'auth.signin'>;
 
 const SignIn:React.FC = () => {
-	const [email, setEmail] = useState<string|undefined>(undefined);
-	const [password, setPassword] = useState<string|undefined>(undefined);
-	const dispatch = useDispatch();
-	const navigation = useNavigation<signinScreenNavigationType>();
-	const error = useAppSelector(state => state.user.error);
+  const [email, setEmail] = useState<string|undefined>(undefined);
+  const [password, setPassword] = useState<string|undefined>(undefined);
+  const dispatch = useDispatch();
+  const navigation = useNavigation<signinScreenNavigationType>();
+  const error = useAppSelector(state => state.user.error);
 
-	const handleSignIn = () => {
-		if (email && password) {
-			dispatch(loginUser(email, password, navigation));
-		}
-	};
+  const handleSignIn = () => {
+    if (email && password) {
+      dispatch(loginUser(email, password, navigation));
+    }
+  };
 
-	useEffect(() => () => {
-		dispatch(setError(null));
-	}, []);
+  useEffect(() => () => {
+    dispatch(setError(null));
+  }, []);
 
-	useEffect(() => {
-		dispatch(setError(null));
-	}, [email, password]);
+  useEffect(() => {
+    dispatch(setError(null));
+  }, [email, password]);
 
-	return (
-		<View style={globalStyles.centeredContainer}>
-			<TextInput placeholder="email" value={email} onChangeText={setEmail} />
-			<TextInput secureTextEntry placeholder="password" value={password} onChangeText={setPassword} />
-			{error !== '' && (
-				<Text>{error}</Text>
-			)}
-			<Button text="Sign In" onPress={handleSignIn} />
-			<Button text="Go To Sign Up Screen" onPress={() => navigation.navigate('auth.signup')} />
-		</View>
-	);
+  return (
+    <View style={globalStyles.centeredContainer}>
+      <TextInput placeholder="email" value={email} onChangeText={setEmail} />
+      <TextInput secureTextEntry placeholder="password" value={password} onChangeText={setPassword} />
+      {error !== '' && (
+        <Text>{error}</Text>
+      )}
+      <Button text="Sign In" onPress={handleSignIn} />
+      <Button text="Go To Sign Up Screen" onPress={() => navigation.navigate('auth.signup')} />
+    </View>
+  );
 };
 
 export default SignIn;

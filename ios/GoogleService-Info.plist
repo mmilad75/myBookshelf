@@ -3,32 +3,32 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>589570795694-no7q54jvpvfho410tjmcq6s7upfupet3.apps.googleusercontent.com</string>
+	<string>218209178932-t5b0921bbo4fc07fbkibpoejdhpqbrep.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.589570795694-no7q54jvpvfho410tjmcq6s7upfupet3</string>
+	<string>com.googleusercontent.apps.218209178932-t5b0921bbo4fc07fbkibpoejdhpqbrep</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAYj5AkVk4xeFEcnqm5gyLQgDyvV60oSS0</string>
+	<string>AIzaSyBv4EhisnWOGpu0a0T5plvW6XbRQc7DyGY</string>
 	<key>GCM_SENDER_ID</key>
-	<string>589570795694</string>
+	<string>218209178932</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>org.reactjs.native.example.MyBookshelf</string>
+	<string>milad.test.MyBookshelf</string>
 	<key>PROJECT_ID</key>
-	<string>tadbir-negar</string>
+	<string>my-bookshelf-96582</string>
 	<key>STORAGE_BUCKET</key>
-	<string>tadbir-negar.appspot.com</string>
+	<string>my-bookshelf-96582.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:589570795694:ios:3963d7a146977cc2b7e53f</string>
+	<string>1:218209178932:ios:31017676bb0d6ce2fbc161</string>
 </dict>
 </plist>
