@@ -7,6 +7,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {AuthStackParamsList} from '../../navigators/Auth';
 import globalStyles from '../../helpers/globalStyles';
 import {useAppSelector} from '../../helpers/hooks';
+import {authTestId} from '../../../e2e/testIds';
 
 export type signinScreenNavigationType = StackNavigationProp<AuthStackParamsList, 'auth.signin'>;
 
@@ -23,7 +24,7 @@ const SignIn:React.FC = () => {
     }
   };
 
-  useEffect(() => () => {
+  useEffect(() => {
     dispatch(setError(null));
   }, []);
 
@@ -33,13 +34,13 @@ const SignIn:React.FC = () => {
 
   return (
     <View style={globalStyles.centeredContainer}>
-      <TextInput placeholder="email" value={email} onChangeText={setEmail} />
-      <TextInput secureTextEntry placeholder="password" value={password} onChangeText={setPassword} />
+      <TextInput testID={authTestId.signin.emailInput} placeholder="email" value={email} onChangeText={setEmail} />
+      <TextInput testID={authTestId.signin.passwordInput} secureTextEntry placeholder="password" value={password} onChangeText={setPassword} />
       {error !== '' && (
-        <Text>{error}</Text>
+        <Text testID={authTestId.signin.textError}>{error}</Text>
       )}
-      <Button text="Sign In" onPress={handleSignIn} />
-      <Button text="Go To Sign Up Screen" onPress={() => navigation.navigate('auth.signup')} />
+      <Button testID={authTestId.signin.signinButton} text="Sign In" onPress={handleSignIn} />
+      <Button testID={authTestId.signin.goToSignUpScreen} text="Go To Sign Up Screen" onPress={() => navigation.navigate('auth.signup')} />
     </View>
   );
 };

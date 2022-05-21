@@ -18,6 +18,7 @@ module.exports = {
   plugins: [
     'react',
     '@typescript-eslint',
+    'eslint-plugin-detox',
   ],
   rules: {
     quotes: ['error', 'single'],

@@ -1,6 +1,7 @@
 import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
 import React, {useEffect} from 'react';
 import {useDispatch} from 'react-redux';
+import {tabsTestID} from '../../../e2e/testIds';
 import {BookItem, FlatList, View} from '../../components';
 import globalStyles from '../../helpers/globalStyles';
 import {useAppSelector} from '../../helpers/hooks';
@@ -16,11 +17,11 @@ const BestSellers: React.FC = () => {
   const state = useAppSelector(state => state);
 
   useEffect(() => {
-    dispatch(getBestSeller());
+    // Dispatch(getBestSeller());
   }, []);
 
   return (
-    <View style={globalStyles.screenContainer}>
+    <View testID={tabsTestID.bestSellers.container} style={globalStyles.screenContainer}>
       <FlatList
         extraData={state}
         data={bestSellers}
