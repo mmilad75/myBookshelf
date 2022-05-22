@@ -33,12 +33,16 @@ const SignUp: React.FC = () => {
     dispatch(setError(null));
   }, [email, password]);
 
+  useEffect(() => {
+    console.log('error', error);
+  }, [error]);
+
   return (
     <View style={globalStyles.centeredContainer}>
-      <TextInput value={email} placeholder="email" onChangeText={setEmail} />
-      <TextInput value={password} placeholder="password" onChangeText={setPassword} />
+      <TextInput testID={authTestId.signUp.emailInput} value={email} placeholder="email" onChangeText={setEmail} />
+      <TextInput testID={authTestId.signUp.passwordInput} value={password} placeholder="password" onChangeText={setPassword} />
       {error !== '' && (
-        <Text>{error}</Text>
+        <Text testID={authTestId.signUp.textError}>{error}</Text>
       )}
       <Button testID={authTestId.signUp.signUpButton} text="Sign Up" onPress={handleSignUp} />
     </View>

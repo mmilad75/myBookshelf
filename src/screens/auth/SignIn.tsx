@@ -35,7 +35,7 @@ const SignIn:React.FC = () => {
   return (
     <View style={globalStyles.centeredContainer}>
       <TextInput testID={authTestId.signin.emailInput} placeholder="email" value={email} onChangeText={setEmail} />
-      <TextInput testID={authTestId.signin.passwordInput} secureTextEntry placeholder="password" value={password} onChangeText={setPassword} />
+      <TextInput testID={authTestId.signin.passwordInput} placeholder="password" value={password} onChangeText={setPassword} />
       {error !== '' && (
         <Text testID={authTestId.signin.textError}>{error}</Text>
       )}

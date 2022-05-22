@@ -11,6 +11,9 @@ module.exports = {
       signOutButton: 'auth.signOut.signOutButton',
     },
     signUp: {
+      emailInput: 'auth.signUp.emailInput',
+      passwordInput: 'auth.signUp.passwordInput',
+      textError: 'auth.signUp.textError',
       signUpButton: 'auth.signUp.signUpButton',
     },
   },

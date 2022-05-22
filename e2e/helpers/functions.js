@@ -10,7 +10,24 @@ const expectToBeVisible = async id => {
   }
 };
 
+const generateString = (length, includeNumbers = false) => {
+  let result = '';
+  let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  if (includeNumbers) {
+    characters += '0123456789';
+  }
+
+  const charactersLength = characters.length;
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random()
+    * charactersLength));
+  }
+
+  return result;
+};
+
 module.exports = {
   waitToNavigate,
   expectToBeVisible,
+  generateString,
 };
